@@ -37,8 +37,11 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    'django_celery_beat',
+    'django_celery_results',
     'app1',
-    'app2'
+    'app2',
+    'app3'
 ]
 
 MIDDLEWARE = [
@@ -127,3 +130,17 @@ EMAIL_HOST_PASSWORD = 'password'
 DEFAULT_FROM_EMAIL = 'test@test.com'
 
 CELERY_BROKER_URL = ''
+
+CELERY_RESULT_BACKEND = 'django-db'
+
+# CELERY_BEAT_SCHEDULE = {
+#     "scheduled_task": {
+#         "task": "app1.tasks.add",
+#         "schedule": 5.0,
+#         "args": (10, 10),
+#     },
+#     "database": {
+#         "task": "app3.tasks.bkup",
+#         "schedule": 5.0,
+#     },
+# }
